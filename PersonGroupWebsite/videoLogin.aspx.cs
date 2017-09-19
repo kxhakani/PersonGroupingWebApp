@@ -27,7 +27,7 @@ namespace PersonGroupWebsite
         // Create grabber, with analysis type Face[]. 
         FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
 
-        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("00d7358854144900955ef88f7f0b190b", "https://westus.api.cognitive.microsoft.com/face/v1.0");
+        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient(ServiceKey, "https://westus.api.cognitive.microsoft.com/face/v1.0");
 
         protected void Page_Load(object sender, EventArgs e)
         {
