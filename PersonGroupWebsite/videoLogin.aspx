@@ -15,7 +15,7 @@
         </tr>
     </table>
     <br/>
-    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/>
+    <input type="button" value="Capture" onclick="Login();"/>
     <br/>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/Scripts/jquery.webcam.js"></script>
@@ -25,11 +25,30 @@
                 width: 320,
                 height: 240,
                 mode: "save",
-                swffile: '/Scripts/jscam.swf'
+                swffile: '/Scripts/jscam.swf',
+                onSave: function (data, ab) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/videoLogin/Login',
+                        data: '',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "text",
+                        success: function (r) {
+                            $("#imgCapture").css("visibility", "visible");
+                            $("#imgCapture").attr("src", r);
+                        },
+                        failure: function (response) {
+                            alert(response.d);
+                        }
+                    });
+                },
+                onCapture: function () {
+                    webcam.save('/videoLogin/Login');
+                }
             });
         });
         function Login() {
-            webcam.capture();
+            PageMethods.Login();
         }
         </script>
 
