@@ -69,7 +69,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> Face API - .NET Solution Delivery Centre/p>
+                <p>&copy; <%: DateTime.Now.Year %> Face API - .NET Solution Delivery Centre</p>
             </footer>
         </div>
 
