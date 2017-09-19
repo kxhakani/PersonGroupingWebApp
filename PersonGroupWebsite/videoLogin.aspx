@@ -11,13 +11,12 @@
         <tr>
             <td><div id="webcam"></div></td>
             <td>&nbsp;</td>
-            <td><img id="imgCapture" style="visibility: hidden; width: 320px;height: 240px"/></td>
+            <td><img id="imgCapture" src="" runat="server"/></td>
         </tr>
     </table>
     <br/>
-    <input type="button" value="Capture" onclick="Capture();"/>
+    <input type="button" value="Capture" onclick="Login();"/>
     <br/>
-    <span id="camStatus"></span>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/Scripts/jquery.webcam.js"></script>
     <script type="text/javascript">
