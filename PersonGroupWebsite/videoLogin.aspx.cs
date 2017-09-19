@@ -7,13 +7,10 @@ using OpenCvSharp.Extensions;
 using System.Linq;
 using System.Data.SqlClient;
 using System.Web.UI;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI.WebControls;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
-using System.Windows;
 using System.Configuration;
+using System.Web.Services;
+using System.Web.Mvc;
+using System.IO;
 
 namespace PersonGroupWebsite
 {
@@ -34,8 +31,50 @@ namespace PersonGroupWebsite
 
         }
 
+        //Call from javascript
+        [WebMethod]
+        public void Login()
+        {
+            //Take Still frame from video
+            var stream = Request.InputStream;
+            string dump;
+            using (var reader = new StreamReader(stream))
+            {
+                dump = reader.ReadToEnd();
+                DateTime nm = DateTime.Now;
+                string date = nm.ToString("yyyymmddMMss");
+                var path = Server.MapPath("/WebImages/" + date + "test.jpg");
+                File.WriteAllBytes(path, String_To_Bytes2(dump));
+                Session["val"] = date + "test.jpg";
+                imgCapture.Src = path;
+            }
+
+            
+            //Pass it to face detect/identify
+
+
+            //Verify identity
+
+        }
+
+        private byte[] String_To_Bytes2(string strInput)
+        {
+            int numBytes = (strInput.Length) / 2;
+            byte[] bytes = new byte[numBytes];
+            for (int x = 0; x < numBytes; ++x)
+            {
+                bytes[x] = Convert.ToByte(strInput.Substring(x * 2, 2), 16);
+            }
+            return bytes;
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
         //Find faces in streaming video
-        public void testFaces(Guid person)
+        /*public void testFaces(Guid person)
         {
             grabber = new FrameGrabber<Face[]>();
 
@@ -45,10 +84,7 @@ namespace PersonGroupWebsite
             //Set up a listener for new frames
             grabber.NewFrameProvided += (s, e) =>
             {
-                this.Dispatcher.BeginInvoke((Action)(() =>
-                {
-                    videoCapture.Source = e.Frame.Image.ToBitmapSource();
-                }));
+                //videoCapture.Source = e.Frame.Image.ToBitmapSource();
             };
 
             // Set up a listener for when we receive a new result from an API call. 
@@ -212,6 +248,6 @@ namespace PersonGroupWebsite
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = Enumerable.Range(0, numCameras).Select(i => string.Format("Camera {0}", i + 1));
             comboBox.SelectedIndex = 0;
-        }
+        }*/
     }
 }
