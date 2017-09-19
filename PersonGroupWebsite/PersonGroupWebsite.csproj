@@ -164,6 +164,8 @@
     <Content Include="CreatePerson.aspx" />
     <Content Include="CreatePersonGroups.aspx" />
     <Content Include="Identify.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Management.aspx" />
     <Content Include="videoLogin.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -247,6 +249,20 @@
     </Compile>
     <Compile Include="Identify.aspx.designer.cs">
       <DependentUpon>Identify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management.aspx.cs">
+      <DependentUpon>Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management.aspx.designer.cs">
+      <DependentUpon>Management.aspx</DependentUpon>
     </Compile>
     <Compile Include="videoLogin.aspx.designer.cs">
       <DependentUpon>videoLogin.aspx</DependentUpon>
