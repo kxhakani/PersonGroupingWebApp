@@ -13,6 +13,7 @@ using System.Web.UI.WebControls;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
 using System.Windows;
+using System.Configuration;
 
 namespace PersonGroupWebsite
 {
@@ -21,6 +22,8 @@ namespace PersonGroupWebsite
     /// </summary>
     public partial class _Default : Page
     {
+        private static string ServiceKey = ConfigurationManager.AppSettings["FaceServiceKey"];
+
         // Create grabber, with analysis type Face[]. 
         FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
 
@@ -91,7 +94,7 @@ namespace PersonGroupWebsite
                         if (auth != null && auth.IsIdentical)
                         {
                             await grabber.StopProcessingAsync();
-                            //MessageBox.Show("User has been Authenticated");
+                            MessageBox.Show("User has been Authenticated");
                         }
                     }
 
