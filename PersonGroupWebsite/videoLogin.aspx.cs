@@ -91,7 +91,7 @@ namespace PersonGroupWebsite
                         if (auth != null && auth.IsIdentical)
                         {
                             await grabber.StopProcessingAsync();
-                            MessageBox.Show("User has been Authenticated");
+                            Helpers.MessageBox.Show(this, "User has been Authenticated");
                         }
                     }
 
@@ -105,7 +105,7 @@ namespace PersonGroupWebsite
             if (grabber.GetNumCameras() > 0)
                 grabber.StartProcessingCameraAsync(lstCameras.SelectedIndex).Wait();
             else
-                MessageBox.Show("There are no cameras to start");
+                Helpers.MessageBox.Show(this, "There are no cameras to start");
         }
 
         private async Task<VerifyResult> authenticateUser(Face face, Guid person)
@@ -123,7 +123,7 @@ namespace PersonGroupWebsite
             string loginGroup = cmboLoginGroup.Text;
             string userName = txtUserName.Text;
             string PersonId = "";
-            bool connectionError=false;
+            bool connectionError = false;
 
             string connectionString = null;
             connectionString = "Server=tcp:sdc-poc-mto-511-test.database.windows.net,1433;Initial Catalog=faceapi-userdb;Persist Security Info=False;User ID=sdcpoc511;Password=Testing511poc;";
@@ -154,14 +154,14 @@ namespace PersonGroupWebsite
             {
                 Console.WriteLine(ex.Message);
                 connectionError = true;
-                MessageBox.Show("Unable to connect to the server. Please try again later.");
+                Helpers.MessageBox.Show(this, "Unable to connect to the server. Please try again later.");
             }
 
             Guid userId = Guid.Empty;
             bool isValid = Guid.TryParse(PersonId, out userId);
 
-            if(!isValid && !connectionError)
-                MessageBox.Show("User could not be found");
+            if (!isValid && !connectionError)
+                Helpers.MessageBox.Show(this, "User could not be found");
 
             return userId;
         }
@@ -189,7 +189,7 @@ namespace PersonGroupWebsite
 
             if (!user.Equals(Guid.Empty))
                 testFaces(user);
-                
+
         }
 
         private async void btnStop_Click(object sender, RoutedEventArgs e)

@@ -161,6 +161,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreatePerson.aspx" />
+    <Content Include="CreatePersonGroups.aspx" />
+    <Content Include="Identify.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Management.aspx" />
     <Content Include="videoLogin.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -222,6 +227,42 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePerson.aspx.cs">
+      <DependentUpon>CreatePerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreatePerson.aspx.designer.cs">
+      <DependentUpon>CreatePerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePersonGroups.aspx.cs">
+      <DependentUpon>CreatePersonGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreatePersonGroups.aspx.designer.cs">
+      <DependentUpon>CreatePersonGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\MessageBox.cs" />
+    <Compile Include="Identify.aspx.cs">
+      <DependentUpon>Identify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Identify.aspx.designer.cs">
+      <DependentUpon>Identify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management.aspx.cs">
+      <DependentUpon>Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management.aspx.designer.cs">
+      <DependentUpon>Management.aspx</DependentUpon>
     </Compile>
     <Compile Include="videoLogin.aspx.designer.cs">
       <DependentUpon>videoLogin.aspx</DependentUpon>
@@ -285,7 +326,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49994</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
