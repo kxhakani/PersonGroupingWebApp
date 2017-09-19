@@ -43,7 +43,7 @@ namespace PersonGroupWebsite
                 dump = reader.ReadToEnd();
                 DateTime nm = DateTime.Now;
                 string date = nm.ToString("yyyymmddMMss");
-                var path = Server.MapPath("~/WebImages/" + date + "test.jpg");
+                var path = Server.MapPath("/WebImages/" + date + "test.jpg");
                 File.WriteAllBytes(path, String_To_Bytes2(dump));
                 Session["val"] = date + "test.jpg";
                 imgCapture.Src = path;
