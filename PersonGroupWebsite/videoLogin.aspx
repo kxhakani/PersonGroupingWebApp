@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Video Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="videoLogin.aspx.cs" Inherits="PersonGroupWebsite.videoLogin" %>
+﻿<%@ Page Async="true" Title="Video Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="videoLogin.aspx.cs" Inherits="PersonGroupWebsite.videoLogin" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

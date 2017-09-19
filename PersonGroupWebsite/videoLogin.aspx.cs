@@ -45,10 +45,7 @@ namespace PersonGroupWebsite
             //Set up a listener for new frames
             grabber.NewFrameProvided += (s, e) =>
             {
-                this.Dispatcher.BeginInvoke((Action)(() =>
-                {
-                    videoCapture.Source = e.Frame.Image.ToBitmapSource();
-                }));
+                videoCapture.Source = e.Frame.Image.ToBitmapSource();
             };
 
             // Set up a listener for when we receive a new result from an API call. 
