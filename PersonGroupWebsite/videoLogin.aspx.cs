@@ -35,7 +35,7 @@ namespace PersonGroupWebsite
         }
 
         //Find faces in streaming video
-        public void testFaces(Guid person)
+        /*public void testFaces(Guid person)
         {
             grabber = new FrameGrabber<Face[]>();
 
@@ -45,7 +45,7 @@ namespace PersonGroupWebsite
             //Set up a listener for new frames
             grabber.NewFrameProvided += (s, e) =>
             {
-                videoCapture.Source = e.Frame.Image.ToBitmapSource();
+                //videoCapture.Source = e.Frame.Image.ToBitmapSource();
             };
 
             // Set up a listener for when we receive a new result from an API call. 
@@ -209,6 +209,6 @@ namespace PersonGroupWebsite
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = Enumerable.Range(0, numCameras).Select(i => string.Format("Camera {0}", i + 1));
             comboBox.SelectedIndex = 0;
-        }
+        }*/
     }
 }
