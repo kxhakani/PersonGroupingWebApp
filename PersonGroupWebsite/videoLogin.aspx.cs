@@ -20,7 +20,7 @@ namespace PersonGroupWebsite
     /// <summary>
     /// Interaction logic for videoLogin.xaml
     /// </summary>
-    public partial class _Default : Page
+    public partial class videoLogin : Page
     {
         private static string ServiceKey = ConfigurationManager.AppSettings["FaceServiceKey"];
 
