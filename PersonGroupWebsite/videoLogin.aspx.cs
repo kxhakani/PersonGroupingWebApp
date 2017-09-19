@@ -91,7 +91,7 @@ namespace PersonGroupWebsite
                         if (auth != null && auth.IsIdentical)
                         {
                             await grabber.StopProcessingAsync();
-                            MessageBox.Show("User has been Authenticated");
+                            //MessageBox.Show("User has been Authenticated");
                         }
                     }
 
