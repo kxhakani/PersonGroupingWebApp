@@ -68,6 +68,11 @@ namespace PersonGroupWebsite
             return bytes;
         }
 
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
         //Find faces in streaming video
         /*public void testFaces(Guid person)
         {

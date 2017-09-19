@@ -11,11 +11,11 @@
         <tr>
             <td><div id="webcam"></div></td>
             <td>&nbsp;</td>
-            <td><img id="imgCapture" src="" runat="server"/></td>
+            <td><img id="imgCapture" src="" runat="server" width="320" height="240"/></td>
         </tr>
     </table>
     <br/>
-    <input type="button" value="Capture" onclick="Login();"/>
+    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/>
     <br/>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="/Scripts/jquery.webcam.js"></script>
@@ -28,7 +28,10 @@
                 swffile: '/Scripts/jscam.swf'
             });
         });
-    </script>
+        function Login() {
+            webcam.capture();
+        }
+        </script>
 
     <div class="row">
     </div>
