@@ -163,6 +163,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CreatePerson.aspx" />
     <Content Include="CreatePersonGroups.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Identify.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Management.aspx" />
@@ -241,6 +242,13 @@
     </Compile>
     <Compile Include="CreatePersonGroups.aspx.designer.cs">
       <DependentUpon>CreatePersonGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\MessageBox.cs" />
     <Compile Include="Identify.aspx.cs">

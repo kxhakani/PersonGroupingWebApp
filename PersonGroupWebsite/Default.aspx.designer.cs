@@ -10,6 +10,6 @@
 namespace PersonGroupWebsite {
     
     
-    public partial class CreatePerson {
+    public partial class Default {
     }
 }
