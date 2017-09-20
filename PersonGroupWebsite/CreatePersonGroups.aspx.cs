@@ -14,9 +14,10 @@ namespace PersonGroupWebsite
     {
         private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("00d7358854144900955ef88f7f0b190b", "https://westus.api.cognitive.microsoft.com/face/v1.0");
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected async void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+                await PopulateDropdownList();
         }
 
         protected async Task CreateGroup()
@@ -39,6 +40,8 @@ namespace PersonGroupWebsite
         protected async void btnCreateGroup_Click(object sender, EventArgs e)
         {
            await CreateGroup();
+           ddlAllGroups.Items.Clear();
+           await PopulateDropdownList();
         }
 
         private async Task PopulateDropdownList()
@@ -49,7 +52,11 @@ namespace PersonGroupWebsite
 
             groups = personGroups.Select(groupId => groupId.PersonGroupId).ToArray();
 
-            ddlAllGroups.DataSource = groups;
+            //ddlAllGroups.DataSource = groups;
+            for (int i=0; i< groups.Length; i++)
+            {
+                ddlAllGroups.Items.Insert(i, new ListItem(groups[i], i.ToString()));
+            }
         }
 
         protected async Task DeleteGroup()
@@ -57,7 +64,7 @@ namespace PersonGroupWebsite
                 PersonGroup[] x = await faceServiceClient.ListPersonGroupsAsync();
                 bool checkIfExists = false;
 
-                string groupID = ddlAllGroups.Text;
+                string groupID = ddlAllGroups.SelectedItem.Text;
                 for (int i = 0; i < x.Length; i++)
                 {
                     if (x[i].PersonGroupId == groupID)
@@ -80,10 +87,7 @@ namespace PersonGroupWebsite
         protected async void btnDeleteGroup_Click(object sender, EventArgs e)
         {
             await DeleteGroup();
-        }
-
-        protected async void ddlAllGroups_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            ddlAllGroups.Items.Clear();
             await PopulateDropdownList();
         }
     }

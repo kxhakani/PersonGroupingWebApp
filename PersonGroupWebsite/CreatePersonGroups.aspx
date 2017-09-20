@@ -16,10 +16,13 @@
     <br /><br />
 
     <h3>Delete Person Group</h3>
-    Select a group to delete:
-    <asp:DropDownList ID="ddlAllGroups" runat="server" OnSelectedIndexChanged="ddlAllGroups_SelectedIndexChanged"></asp:DropDownList>
+    Person Group ID: 
+    <asp:DropDownList ID="ddlAllGroups" runat="server" AppendDataBoundItems="true">
+       <%--  <asp:ListItem Text="Select Person Group ID ..." Value="0" />--%>
+    </asp:DropDownList>
+
     <br />
-    <asp:Button ID="btnDeleteGroup" runat="server" Text="Delete Group" OnClick="btnDeleteGroup_Click" />
+    <asp:Button ID="btnDeleteGroup" OnClientClick="javascript:return confirm('Are you sure you want to delete?');" runat="server" Text="Delete Person Group" OnClick="btnDeleteGroup_Click" />
     <br />
     <asp:Label ID="txtMessage2" runat="server" />
 </asp:Content>
